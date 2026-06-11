@@ -37,7 +37,7 @@ pub struct AgentPool {
 
 impl AgentPool {
     pub fn new(capacity: usize) -> Self {
-        let agents = (0..capacity).map(CellAgent::new).collect();
+        let agents = (0..capacity as u32).map(CellAgent::new).collect();
         AgentPool { agents, next_id: capacity as u32 }
     }
     pub fn acquire(&mut self) -> Option<&mut CellAgent> {
